@@ -1,0 +1,105 @@
+<template>
+  <div
+    class="flex flex-col md:flex-row bg-white p-4 rounded-lg shadow-md w-full max-w-5xl mx-auto"
+  >
+    <!-- Sol: Ürün Görseli -->
+    <div class="w-full md:w-1/2 mb-4 md:mb-0">
+      <img :src="selectedImage" alt="Ürün Görseli" class="rounded-md" />
+    </div>
+
+    <!-- Sağ: Ürün Bilgileri -->
+    <div class="w-full md:w-1/2 md:pl-6 flex flex-col">
+      <!-- Üst Banner -->
+      <div
+        class="bg-pink-500 text-white text-sm font-semibold px-4 py-2 rounded-md mb-4"
+      >
+        ⚡ 479,82 TL tasarruf edin
+      </div>
+
+      <!-- Fiyat Bilgisi -->
+      <div class="mb-4">
+        <p class="text-3xl font-bold text-gray-800">124,31 TL</p>
+        <div class="flex items-center space-x-2">
+          <span class="text-sm text-gray-500 line-through">604,13 TL</span>
+          <span class="text-sm text-red-500 font-semibold">79% indirim</span>
+        </div>
+        <p class="text-xs text-gray-500">
+          Vergiden önce gösterilen fiyat | Ekstra %1 İndirim
+        </p>
+      </div>
+
+      <!-- Ürün Başlığı -->
+      <div class="mb-4">
+        <h2 class="text-gray-800 text-base font-semibold">
+          Evrensel Cep Telefonu Standı Ayarlanabilir Tembel Standı Dönebilen
+          Başucu Standı Masaüstü Canlı Akış Selfie'ler Telefon Aksesuarları
+        </h2>
+      </div>
+
+      <!-- Derecelendirme -->
+      <div class="flex items-center mb-4 space-x-1">
+        <span class="flex">
+          <span class="material-icons text-yellow-400">star</span>
+          <span class="material-icons text-yellow-400">star</span>
+          <span class="material-icons text-yellow-400">star</span>
+          <span class="material-icons text-yellow-400">star_half</span>
+          <span class="material-icons text-gray-300">star</span>
+        </span>
+        <span class="text-sm text-gray-700">4.3</span>
+        <span class="text-sm text-gray-500">(1400 Yorum)</span>
+        <span class="text-sm text-gray-500 ml-2">5000+ satıldı</span>
+      </div>
+
+      <!-- Renk Seçimi -->
+      <div class="mb-4">
+        <p class="text-gray-700 text-sm font-semibold mb-2">Renk: White</p>
+        <div class="flex space-x-2">
+          <img
+            v-for="(image, index) in colorOptions"
+            :key="index"
+            :src="image"
+            alt="Renk Seçimi"
+            class="w-12 h-12 border rounded-md cursor-pointer"
+            @click="updateSelectedImage(image)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+  import { defineComponent, ref } from "vue";
+
+  export default defineComponent({
+    name: "ProductCard",
+    setup() {
+      // Ürün için varsayılan görsel
+      const selectedImage = ref<string>(
+        "https://via.placeholder.com/300x400?text=Default"
+      );
+
+      // Renk seçenekleri için görseller
+      const colorOptions = ref<string[]>([
+        "https://via.placeholder.com/300x400?text=Color+1",
+        "https://via.placeholder.com/300x400?text=Color+2",
+        "https://via.placeholder.com/300x400?text=Color+3",
+      ]);
+
+      // Tıklanan görseli ana görsele güncelle
+      const updateSelectedImage = (image: string): void => {
+        selectedImage.value = image;
+      };
+
+      return {
+        selectedImage,
+        colorOptions,
+        updateSelectedImage,
+      };
+    },
+  });
+</script>
+
+<style>
+  /* TailwindCSS kullanıldığı için ekstra CSS gerekmez */
+</style>
