@@ -68,71 +68,80 @@
       // Ürün listesi
       const items = ref([
         {
-          name: "Table",
+          name: "2/3 in1 Case For Airpods Max",
           oldPrice: "$13.29",
           discountedPrice: "$1.33",
           rating: 4.4,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S7fe61a03d3484d249a2d527a5d1f62497.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
         {
-          name: "Blanket",
+          name: "French Bread Plush Pillow",
           oldPrice: "$32.92",
           discountedPrice: "$7.99",
           rating: 4.5,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S414500b07cbc49538592f56fac15e0eez.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
         {
-          name: "Wool Rug",
+          name: "Luxury Magnetic MagSafe Case",
           oldPrice: "$6.54",
           discountedPrice: "$0.33",
           rating: 4.4,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S5e4cf7c4c77f44a6a4f320fbe13ae6171.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
         {
-          name: "Golf T-shirt",
+          name: "Transparent Resin Strap",
           oldPrice: "$5.09",
           discountedPrice: "$0.33",
           rating: 4.7,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S744ab00f2b3b4b5fa404af1ea087dcf2H.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
         {
-          name: "Colored Pens",
+          name: "Wireless Bluetooth Headphones",
           oldPrice: "$15.99",
           discountedPrice: "$5.50",
           rating: 4.6,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S6ad1b3187ce44e4a89c3cf752c4ce933j.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
         {
-          name: "Robot Cleaner",
-          oldPrice: "$50.50",
-          discountedPrice: "$23.99",
+          name: "Mini USB Desk Fan",
+          oldPrice: "$5.50",
+          discountedPrice: "$2.99",
           rating: 4.3,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S4c5194550d274c38894460bb7d6ae384v.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
         {
-          name: "Toy",
+          name: "Portable LED Lamp",
           oldPrice: "$10.99",
           discountedPrice: "$3.99",
           rating: 4.5,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S9218cb0aa32b427491e40dd7ec05884au.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
         {
-          name: "T-shirt",
+          name: "Travel Organizer Bag",
           oldPrice: "$14.50",
           discountedPrice: "$6.50",
           rating: 4.8,
-          image: "https://ae-pic-a1.aliexpress-media.com/kf/S8e9047c28c8a4e198199ed08580fd257z.jpg_480x480.jpg_.webp",
+          image: "https://via.placeholder.com/100",
         },
       ]);
+  
+      // Carousel için index kontrolü
       const currentIndex = ref(0);
+  
+      // Ürünlerin bir defada kaç tane görüneceği
       const itemsPerPage = 4;
+  
+      // Toplam sayfa sayısını hesapla
       const totalPages = Math.ceil(items.value.length / itemsPerPage);
+  
       const nextSlide = () => {
         currentIndex.value = (currentIndex.value + 1) % totalPages;
       };
+  
       const prevSlide = () => {
         currentIndex.value = (currentIndex.value - 1 + totalPages) % totalPages;
       };
+  
       return {
         items,
         currentIndex,
